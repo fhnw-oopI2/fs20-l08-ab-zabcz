@@ -1,5 +1,6 @@
-package ch.fhnw.oop2.module08.ab1;
+package ch.fhnw.oop2.module08.ab2.dirty;
 
+import ch.fhnw.oop2.module08.ab2.ButtonStatus;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -9,8 +10,8 @@ public class PresentationModel {
     public StringProperty buttonText;
 
     public PresentationModel() {
-        appTitle = new SimpleStringProperty("JavaFX Application - Aufgabe 1");
-        buttonText = new SimpleStringProperty("Hello World");
+        appTitle = new SimpleStringProperty("JavaFX Application - Aufgabe 2 - dirty");
+        buttonText = new SimpleStringProperty(ButtonStatus.On.toString());
     }
 
     public String getAppTitle() {
@@ -37,4 +38,11 @@ public class PresentationModel {
         this.buttonText.set(buttonText);
     }
 
+    public void toggle() {
+        if (getButtonText().equals(ButtonStatus.On.toString())){
+            setButtonText(ButtonStatus.Off.toString());
+        } else{
+            setButtonText(ButtonStatus.On.toString());
+        }
+    }
 }
